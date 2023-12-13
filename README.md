@@ -16,4 +16,4 @@
 Статистика по использованию ссылки. Пример ответа: 
 `{"visits_count":99}`
 
-[Вариант с локами](https://github.com/AskarZinurov/machete/commit/e0fe74f50f83132a71caeb1d9e58eb2c99a5f44e) 
+[Вариант с локами](https://github.com/AskarZinurov/machete/commit/e0fe74f50f83132a71caeb1d9e58eb2c99a5f44e)
