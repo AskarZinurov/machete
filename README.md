@@ -1,24 +1,19 @@
-# README
+# Machete
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Мачете не смсит, он сокращает ссылки.
 
-Things you may want to cover:
+#### POST `/urls { url: "https://example.com" }`
 
-* Ruby version
+Создание ссылки, пример ответа: 
+`{"id":2,"url":"https://ya.ru","short_url":"74704cb525c8f310fdc5c822782d20d60eaadade"}`
 
-* System dependencies
+#### GET `/urls/:short_url`
 
-* Configuration
+Использование - на выходе редирект на полный URL или 400
 
-* Database creation
+#### GET `/urls/:short_url/stats`
 
-* Database initialization
+Статистика по использованию ссылки. Пример ответа: 
+`{"visits_count":99}`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Вариант с локами](https://github.com/AskarZinurov/machete/commit/e0fe74f50f83132a71caeb1d9e58eb2c99a5f44e) 

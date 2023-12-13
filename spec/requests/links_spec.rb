@@ -1,14 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe "Links", type: :request do
+  let(:response_json) { JSON.parse(response.body) }
+
   describe "POST /urls" do
     let(:url) { "https://www.google.com?s=123" }
     let(:params) { { url: } }
+    let(:link) { Link.find_by(url:) }
 
     let(:request) { post("/urls", params:) }
 
     it "stores link" do
       expect { request }.to change { Link.find_by(url:) }.from(nil)
+      expect(response_json).to include(
+        "id" => link.id,
+        "url" => url,
+        "short_url" => link.signature
+      )
     end
   end
 

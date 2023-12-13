@@ -10,6 +10,13 @@ class LinksController < ApplicationController
     Services::Signer.run(link:)
     link.save
 
-    render json: link.to_json(only: %i[id url signature])
+    render json: link_json(link)
+  end
+
+  private
+
+  def link_json(link)
+    link.as_json(only: %i[id url])
+        .merge("short_url" => link.signature)
   end
 end
