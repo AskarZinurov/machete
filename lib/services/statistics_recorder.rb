@@ -3,10 +3,8 @@
 module Services
   class StatisticsRecorder
     class << self
-      def run(link:)
-        link.with_lock do
-          link.increment!(:visits_count)
-        end
+      def run(link:, request:)
+        link.visits.create!(agent: request.user_agent.to_json)
 
         link
       end

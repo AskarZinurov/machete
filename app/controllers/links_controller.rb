@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   def show
-    Services::StatisticsRecorder.run(link:)
+    Services::StatisticsRecorder.run(link:, request:)
 
     redirect_to link.url, status: :found, allow_other_host: true
   end

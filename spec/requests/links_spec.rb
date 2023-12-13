@@ -30,7 +30,7 @@ RSpec.describe "Links", type: :request do
       request
 
       expect(response).to redirect_to("https://microsoft.com/outlook")
-      expect(link.reload.visits_count).to be(1)
+      expect(link.statistics[:visits_count]).to be(1)
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_13_153222) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_13_205142) do
   create_table "links", force: :cascade do |t|
     t.text "url"
     t.text "signature"
@@ -18,6 +18,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_13_153222) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["signature"], name: "index_links_on_signature", unique: true
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.integer "link_id", null: false
+    t.json "agent", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["link_id"], name: "index_visits_on_link_id"
   end
 
 end
