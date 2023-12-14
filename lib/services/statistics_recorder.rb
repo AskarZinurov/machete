@@ -4,9 +4,7 @@ module Services
   class StatisticsRecorder
     class << self
       def run(link:)
-        link.with_lock do
-          link.increment!(:visits_count)
-        end
+        link.increment!(:visits_count)
 
         link
       end
